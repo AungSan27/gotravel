@@ -58,13 +58,11 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
             {categories.map((cat, index) => (
-              <Link key={index} href={cat.link}>
-                <a className="group block h-full">
+              <Link key={index} href={cat.link} className="group block h-full">
                   <div className="bg-background/10 backdrop-blur-md border border-white/20 p-6 flex flex-col items-center justify-center gap-3 hover:bg-primary hover:border-primary transition-all duration-300 h-full">
                     <cat.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-white tracking-wide uppercase">{cat.label}</span>
                   </div>
-                </a>
               </Link>
             ))}
           </div>
@@ -86,8 +84,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredDestinations.map((dest, index) => (
-              <Link key={index} href={dest.link}>
-                <a className="group block">
+              <Link key={index} href={dest.link} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                     <img 
                       src={dest.image} 
@@ -105,7 +102,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </a>
               </Link>
             ))}
           </div>

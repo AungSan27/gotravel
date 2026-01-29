@@ -8,16 +8,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/">
-            <a className="text-2xl font-bold tracking-tighter text-primary">
+          <Link href="/" className="text-2xl font-bold tracking-tighter text-primary">
               GoTravel<span className="text-foreground">.</span>
-            </a>
           </Link>
           
           <nav className="hidden md:flex gap-8 items-center text-sm font-medium">
-            <Link href="/destinations/bangkok"><a className="hover:text-primary transition-colors">Destinations</a></Link>
-            <Link href="/blog"><a className="hover:text-primary transition-colors">Blog</a></Link>
-            <Link href="/about"><a className="hover:text-primary transition-colors">About Us</a></Link>
+            <Link href="/destinations/bangkok" className="hover:text-primary transition-colors">Destinations</Link>
+            <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -50,20 +48,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Explore</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/destinations/bangkok"><a className="hover:underline">Bangkok</a></Link></li>
-              <li><Link href="/destinations/tokyo"><a className="hover:underline">Tokyo</a></Link></li>
-              <li><Link href="/destinations/bali"><a className="hover:underline">Bali</a></Link></li>
-              <li><Link href="/destinations/singapore"><a className="hover:underline">Singapore</a></Link></li>
+              <li><Link href="/destinations/bangkok" className="hover:underline">Bangkok</Link></li>
+              <li><Link href="/destinations/tokyo" className="hover:underline">Tokyo</Link></li>
+              <li><Link href="/destinations/bali" className="hover:underline">Bali</Link></li>
+              <li><Link href="/destinations/singapore" className="hover:underline">Singapore</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Company</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/about"><a className="hover:underline">About Us</a></Link></li>
-              <li><Link href="/contact"><a className="hover:underline">Contact</a></Link></li>
-              <li><Link href="/privacy"><a className="hover:underline">Privacy Policy</a></Link></li>
-              <li><Link href="/terms"><a className="hover:underline">Terms of Service</a></Link></li>
+              <li><Link href="/about" className="hover:underline">About Us</Link></li>
+              <li><Link href="/contact" className="hover:underline">Contact</Link></li>
+              <li><Link href="/privacy" className="hover:underline">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:underline">Terms of Service</Link></li>
             </ul>
           </div>
 

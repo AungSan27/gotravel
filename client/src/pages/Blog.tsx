@@ -53,8 +53,7 @@ export default function Blog() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, index) => (
-              <Link key={index} href={post.link}>
-                <a className="group block border border-border bg-card hover:border-primary transition-colors h-full flex flex-col">
+              <Link key={index} href={post.link} className="group block border border-border bg-card hover:border-primary transition-colors h-full flex flex-col">
                   <div className="aspect-video overflow-hidden bg-muted relative">
                     <img 
                       src={post.image} 
@@ -76,7 +75,6 @@ export default function Blog() {
                       Read Article <span className="text-lg">→</span>
                     </div>
                   </div>
-                </a>
               </Link>
             ))}
           </div>
