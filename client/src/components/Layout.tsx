@@ -16,9 +16,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
           
           <nav className="hidden md:flex gap-8 items-center text-sm font-medium">
-            <Link href="/destinations/bangkok" className="hover:text-primary transition-colors">Destinations</Link>
+            <Link href="/thailand/chiang-mai" className="hover:text-primary transition-colors">Chiang Mai</Link>
+            <Link href="/thailand/bangkok" className="hover:text-primary transition-colors">Bangkok</Link>
+            <Link href="/thailand/phuket" className="hover:text-primary transition-colors">Phuket</Link>
+            <Link href="/thailand/krabi" className="hover:text-primary transition-colors">Krabi</Link>
             <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -46,17 +48,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <img src="/logo.png" alt="GoTravel Logo" className="h-12 w-auto object-contain" />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Your expert guide to flights, hotels, tours, and more. Plan your entire journey in one place.
+              Thailand Travel Guides & Planning for Myanmar and International Travelers. Crafting Unforgettable Journeys.
             </p>
           </div>
           
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Explore</h4>
+            <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Destinations</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/destinations/bangkok" className="hover:underline">Bangkok</Link></li>
-              <li><Link href="/destinations/tokyo" className="hover:underline">Tokyo</Link></li>
-              <li><Link href="/destinations/bali" className="hover:underline">Bali</Link></li>
-              <li><Link href="/destinations/singapore" className="hover:underline">Singapore</Link></li>
+              <li><Link href="/thailand/chiang-mai" className="hover:underline">Chiang Mai</Link></li>
+              <li><Link href="/thailand/bangkok" className="hover:underline">Bangkok</Link></li>
+              <li><Link href="/thailand/phuket" className="hover:underline">Phuket</Link></li>
+              <li><Link href="/thailand/krabi" className="hover:underline">Krabi</Link></li>
+              <li><Link href="/thailand/pai" className="hover:underline">Pai</Link></li>
+              <li><Link href="/thailand/chiang-rai" className="hover:underline">Chiang Rai</Link></li>
             </ul>
           </div>
 
@@ -73,7 +77,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Newsletter</h4>
             <p className="text-sm text-muted-foreground mb-4">
-              Get the latest travel deals and tips.
+              Get the latest Thailand travel deals and tips.
             </p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
               <input 
@@ -88,7 +92,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="container mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-mono">
-          <p>© 2026 GoTravel — Travel Guides & Planning</p>
+          <p>© 2026 GoTravel — Crafting Unforgettable Journeys</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-foreground">Instagram</a>
             <a href="#" className="hover:text-foreground">Twitter</a>

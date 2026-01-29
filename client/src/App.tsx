@@ -5,49 +5,52 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Blog from "./pages/Blog";
 import Bangkok from "./pages/destinations/Bangkok";
-import Tokyo from "./pages/destinations/Tokyo";
-import Bali from "./pages/destinations/Bali";
+import ChiangMai from "./pages/destinations/ChiangMai";
+import Phuket from "./pages/destinations/Phuket";
+import Krabi from "./pages/destinations/Krabi";
+import Pai from "./pages/destinations/Pai";
+import ChiangRai from "./pages/destinations/ChiangRai";
+
+// Money Pages
 import BestThingsToDoBangkok from "./pages/blog/BestThingsToDoBangkok";
 import CheapFlightsBangkok from "./pages/blog/CheapFlightsBangkok";
 import BestTransfersBangkok from "./pages/blog/BestTransfersBangkok";
 import BestInsuranceThailand from "./pages/blog/BestInsuranceThailand";
 import BestEsimThailand from "./pages/blog/BestEsimThailand";
-import Blog from "./pages/Blog";
-
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/destinations/bangkok"} component={Bangkok} />
-      <Route path={"/destinations/tokyo"} component={Tokyo} />
-      <Route path={"/destinations/bali"} component={Bali} />
-      <Route path={"/blog/best-things-to-do-in-bangkok"} component={BestThingsToDoBangkok} />
-      <Route path={"/blog/cheap-flights-to-bangkok"} component={CheapFlightsBangkok} />
-      <Route path={"/blog/best-airport-transfers-in-bangkok"} component={BestTransfersBangkok} />
-      <Route path={"/blog/best-travel-insurance-for-thailand"} component={BestInsuranceThailand} />
-      <Route path={"/blog/best-esim-for-thailand"} component={BestEsimThailand} />
-      <Route path={"/blog"} component={Blog} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      
+      {/* Thailand Destinations */}
+      <Route path="/thailand/bangkok" component={Bangkok} />
+      <Route path="/thailand/chiang-mai" component={ChiangMai} />
+      <Route path="/thailand/phuket" component={Phuket} />
+      <Route path="/thailand/krabi" component={Krabi} />
+      <Route path="/thailand/pai" component={Pai} />
+      <Route path="/thailand/chiang-rai" component={ChiangRai} />
+      
+      {/* Blog & Money Pages */}
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/best-things-to-do-in-bangkok" component={BestThingsToDoBangkok} />
+      <Route path="/blog/cheap-flights-to-bangkok" component={CheapFlightsBangkok} />
+      <Route path="/blog/best-airport-transfers-in-bangkok" component={BestTransfersBangkok} />
+      <Route path="/blog/best-travel-insurance-for-thailand" component={BestInsuranceThailand} />
+      <Route path="/blog/best-esim-for-thailand" component={BestEsimThailand} />
+      
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
