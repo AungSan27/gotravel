@@ -1,16 +1,16 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Plane, Hotel, Ticket, Car, Wifi, ShieldCheck, ArrowRight } from "lucide-react";
+import { Plane, Hotel, Ticket, Car, Wifi, ShieldCheck, ArrowRight, ExternalLink, MapPin, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
   const categories = [
-    { icon: Plane, label: "Find Flights", link: "/flights", color: "text-blue-500" },
-    { icon: Hotel, label: "Hotels", link: "/hotels", color: "text-indigo-500" },
-    { icon: Ticket, label: "Things To Do", link: "/activities", color: "text-pink-500" },
-    { icon: Car, label: "Transfers", link: "/transfers", color: "text-orange-500" },
-    { icon: Wifi, label: "eSIM", link: "/esim", color: "text-green-500" },
-    { icon: ShieldCheck, label: "Insurance", link: "/insurance", color: "text-red-500" },
+    { icon: Plane, label: "Find Flights", link: "https://www.kiwi.com/en/search/results/yangon-myanmar/bangkok-thailand", color: "text-blue-500" },
+    { icon: Hotel, label: "Hotels", link: "https://www.traveloka.com/en-th/hotel/thailand", color: "text-indigo-500" },
+    { icon: Ticket, label: "Things To Do", link: "https://www.klook.com/en-US/country/4-thailand-things-to-do/", color: "text-pink-500" },
+    { icon: Car, label: "Transfers", link: "https://www.welcomepickups.com/", color: "text-orange-500" },
+    { icon: Wifi, label: "eSIM", link: "https://www.airalo.com/thailand-esim", color: "text-green-500" },
+    { icon: ShieldCheck, label: "Insurance", link: "https://ektatraveling.com/", color: "text-red-500" },
   ];
 
   const featuredDestinations = [
@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/hero-travel.jpg" 
@@ -61,13 +61,47 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
             {categories.map((cat, index) => (
-              <Link key={index} href={cat.link} className="group block h-full">
+              <a 
+                key={index} 
+                href={cat.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group block h-full"
+              >
                   <div className="bg-background/10 backdrop-blur-md border border-white/20 p-6 flex flex-col items-center justify-center gap-3 hover:bg-primary hover:border-primary transition-all duration-300 h-full">
                     <cat.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-white tracking-wide uppercase">{cat.label}</span>
                   </div>
-              </Link>
+              </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Regional Flights Section */}
+      <section className="py-20 bg-muted/20 border-b border-border">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-card border border-border p-8 md:p-12 shadow-sm">
+            <div className="flex-1 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider">
+                <Plane className="w-3 h-3" /> Popular Route
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight">Traveling from Myanmar?</h2>
+              <p className="text-muted-foreground text-lg">
+                Find the best flight deals from Yangon (RGN) or Mandalay (MDL) to Bangkok (BKK/DMK) and Chiang Mai (CNX).
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <a 
+                href="https://www.kiwi.com/en/search/results/yangon-myanmar/thailand" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider h-14 px-8 text-base shadow-lg hover:shadow-xl transition-all">
+                  Search Flights to Thailand <ExternalLink className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -87,8 +121,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredDestinations.map((dest, index) => (
-              <Link key={index} href={dest.link} className="group block">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+              <div key={index} className="group block bg-card border border-border flex flex-col h-full">
+                  <Link href={dest.link} className="relative aspect-[4/5] overflow-hidden bg-muted block">
                     <img 
                       src={dest.image} 
                       alt={dest.name} 
@@ -97,21 +131,26 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                     <div className="absolute bottom-0 left-0 p-8 w-full">
                       <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">{dest.name}</h3>
-                      <p className="text-gray-300 text-sm line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      <p className="text-gray-300 text-sm line-clamp-2 mb-4">
                         {dest.description}
                       </p>
-                      <div className="flex items-center gap-2 text-primary font-mono text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                        Explore Guide <ArrowRight className="w-3 h-3" />
-                      </div>
                     </div>
+                  </Link>
+                  <div className="p-6 grid grid-cols-2 gap-3 mt-auto bg-card">
+                     <a href="https://www.traveloka.com/en-th/hotel/thailand" target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="sm" className="w-full text-xs font-mono uppercase">Check Hotels</Button>
+                     </a>
+                     <a href="https://www.klook.com/en-US/country/4-thailand-things-to-do/" target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="sm" className="w-full text-xs font-mono uppercase">View Tours</Button>
+                     </a>
                   </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Value Proposition / Why Use Us */}
+      {/* Trip Example Box */}
       <section className="py-24 bg-muted/30 border-y border-border">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -121,38 +160,24 @@ export default function Home() {
                 <span className="text-primary">Travel Expert.</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Whether you're visiting from Myanmar or anywhere else in the world, we help you navigate Thailand with ease. From visa tips to local transport, we've got you covered.
+                We simplify your journey by connecting you with the most trusted travel partners in Southeast Asia. Plan, book, and go—all in one place.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center rounded-none mb-2">
-                    <Plane className="w-5 h-5 text-primary" />
-                  </div>
-                  <h4 className="font-bold">Regional Flights</h4>
-                  <p className="text-sm text-muted-foreground">Best connections from Yangon, Mandalay, and beyond.</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center rounded-none mb-2">
-                    <ShieldCheck className="w-5 h-5 text-primary" />
-                  </div>
-                  <h4 className="font-bold">Trusted Partners</h4>
-                  <p className="text-sm text-muted-foreground">We only recommend services we trust and use ourselves.</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center rounded-none mb-2">
-                    <Ticket className="w-5 h-5 text-primary" />
-                  </div>
-                  <h4 className="font-bold">Local Experiences</h4>
-                  <p className="text-sm text-muted-foreground">Cooking classes, ethical elephant sanctuaries, and island tours.</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center rounded-none mb-2">
-                    <Wifi className="w-5 h-5 text-primary" />
-                  </div>
-                  <h4 className="font-bold">Stay Connected</h4>
-                  <p className="text-sm text-muted-foreground">Reliable eSIMs for seamless internet across Thailand.</p>
-                </div>
+                 {[
+                    { icon: Plane, title: "Flights", desc: "Best connections via Kiwi.com", link: "https://www.kiwi.com/en/search/results/yangon-myanmar/thailand" },
+                    { icon: Hotel, title: "Stays", desc: "Top deals on Traveloka", link: "https://www.traveloka.com/en-th/hotel/thailand" },
+                    { icon: Ticket, title: "Experiences", desc: "Adventures by Klook", link: "https://www.klook.com/en-US/country/4-thailand-things-to-do/" },
+                    { icon: Car, title: "Transfers", desc: "Reliable rides via Welcome Pickups", link: "https://www.welcomepickups.com/" },
+                 ].map((item, i) => (
+                    <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" className="group block space-y-2 hover:bg-background/50 p-4 -mx-4 rounded-lg transition-colors">
+                      <div className="w-10 h-10 bg-primary/10 flex items-center justify-center rounded-none mb-2 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <item.icon className="w-5 h-5 text-primary group-hover:text-white" />
+                      </div>
+                      <h4 className="font-bold flex items-center gap-2">{item.title} <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></h4>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </a>
+                 ))}
               </div>
             </div>
             
@@ -160,51 +185,61 @@ export default function Home() {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-2xl" />
               <div className="relative bg-background border border-border p-8 shadow-2xl">
                 <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
-                  <span className="font-mono text-sm text-muted-foreground">TRIP_ID: #TH8829</span>
-                  <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider">Confirmed</span>
+                  <span className="font-mono text-sm text-muted-foreground">TRIP_EXAMPLE: #TH8829</span>
+                  <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider">Estimated Cost</span>
                 </div>
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4 group">
                     <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
                       <Plane className="w-4 h-4" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h5 className="font-bold text-sm">Flight to Chiang Mai</h5>
                       <p className="text-xs text-muted-foreground font-mono mt-1">BKK → CNX • 1h 15m</p>
                     </div>
-                    <div className="ml-auto font-mono text-sm">฿1,200</div>
+                    <a href="https://www.kiwi.com/en/search/results/bangkok-thailand/chiang-mai-thailand" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" variant="ghost" className="text-xs font-mono uppercase text-primary hover:text-primary hover:bg-primary/10">Check Price</Button>
+                    </a>
                   </div>
                   
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4 group">
                     <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-600">
                       <Hotel className="w-4 h-4" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h5 className="font-bold text-sm">Boutique Hotel</h5>
                       <p className="text-xs text-muted-foreground font-mono mt-1">3 Nights • Nimman</p>
                     </div>
-                    <div className="ml-auto font-mono text-sm">฿4,500</div>
+                    <a href="https://www.traveloka.com/en-th/hotel/thailand/city/chiang-mai-10000008" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" variant="ghost" className="text-xs font-mono uppercase text-primary hover:text-primary hover:bg-primary/10">Check Availability</Button>
+                    </a>
                   </div>
 
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4 group">
                     <div className="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0 text-pink-600">
                       <Ticket className="w-4 h-4" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h5 className="font-bold text-sm">Doi Inthanon Tour</h5>
                       <p className="text-xs text-muted-foreground font-mono mt-1">Full Day • Guided</p>
                     </div>
-                    <div className="ml-auto font-mono text-sm">฿1,500</div>
+                    <a href="https://www.klook.com/en-US/city/4-chiang-mai-things-to-do/" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" variant="ghost" className="text-xs font-mono uppercase text-primary hover:text-primary hover:bg-primary/10">View Tours</Button>
+                    </a>
                   </div>
 
                   <div className="pt-4 border-t border-border flex justify-between items-center">
-                    <span className="font-bold">Total</span>
-                    <span className="font-mono text-lg font-bold text-primary">฿7,200</span>
+                    <span className="font-bold text-sm text-muted-foreground">Total Estimate</span>
+                    <span className="font-mono text-lg font-bold text-foreground">~฿7,200</span>
                   </div>
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="w-full font-mono uppercase tracking-wider bg-secondary text-secondary-foreground hover:bg-primary hover:text-white transition-colors">Start Planning Now</Button>
+                  <a href="https://www.kiwi.com/en/search/results/yangon-myanmar/thailand" target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full font-mono uppercase tracking-wider bg-secondary text-secondary-foreground hover:bg-primary hover:text-white transition-colors h-12">
+                        Book This Trip Now
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>

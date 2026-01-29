@@ -91,12 +91,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </form>
           </div>
         </div>
-        <div className="container mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-mono">
-          <p>© 2026 GoTravel — Crafting Unforgettable Journeys</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-foreground">Instagram</a>
-            <a href="#" className="hover:text-foreground">Twitter</a>
-            <a href="#" className="hover:text-foreground">Facebook</a>
+        
+        {/* Affiliate Disclosure */}
+        <div className="container mt-12 pt-8 border-t border-border text-xs text-muted-foreground">
+          <p className="mb-4">
+            <strong>Disclosure:</strong> GoTravel is an affiliate website. Some links on this site are affiliate links, meaning we may earn a small commission if you make a purchase through them, at no extra cost to you. This helps support our work in creating free travel guides. We only recommend products and services we trust and use ourselves.
+          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
+            <p>© 2026 GoTravel — Crafting Unforgettable Journeys</p>
+            <div className="flex gap-4">
+              <a href="#" className="hover:text-foreground">Instagram</a>
+              <a href="#" className="hover:text-foreground">Twitter</a>
+              <a href="#" className="hover:text-foreground">Facebook</a>
+            </div>
           </div>
         </div>
       </footer>
