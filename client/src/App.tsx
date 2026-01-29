@@ -19,8 +19,8 @@ import CheapFlightsBangkok from "./pages/blog/CheapFlightsBangkok";
 import BestTransfersBangkok from "./pages/blog/BestTransfersBangkok";
 import BestInsuranceThailand from "./pages/blog/BestInsuranceThailand";
 import BestEsimThailand from "./pages/blog/BestEsimThailand";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={Home} />

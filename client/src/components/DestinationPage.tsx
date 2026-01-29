@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Plane, Hotel, Ticket, Car, Wifi, ShieldCheck, ExternalLink, MapPin } from "lucide-react";
+import TransportScheduleWidget from "./TransportScheduleWidget";
 
 export interface DestinationPageProps {
   name: string;
@@ -99,6 +100,15 @@ export default function DestinationPage(props: DestinationPageProps) {
           </div>
         </section>
       ))}
+
+      {/* Transport Widget */}
+      <section className="py-16 bg-muted/30 border-b border-border">
+        <div className="container">
+          <h2 className="text-3xl font-bold tracking-tight mb-8">Getting Around Thailand</h2>
+          <p className="text-muted-foreground mb-8 text-lg">Search for buses, trains, and minibuses to {props.name} and other Thai cities.</p>
+          <TransportScheduleWidget />
+        </div>
+      </section>
 
       {/* Affiliate Tools Grid */}
       <section className="py-24 bg-primary text-primary-foreground">

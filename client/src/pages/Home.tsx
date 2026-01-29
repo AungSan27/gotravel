@@ -2,8 +2,11 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Plane, Hotel, Ticket, Car, Wifi, ShieldCheck, ArrowRight, ExternalLink, MapPin, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import { useAuth } from "@/_core/hooks/useAuth";
+import TransportScheduleWidget from "@/components/TransportScheduleWidget";
 
 export default function Home() {
+
   const categories = [
     { icon: Plane, label: "Find Flights", link: "https://www.kiwi.com/en/search/results/yangon-myanmar/bangkok-thailand", color: "text-blue-500" },
     { icon: Hotel, label: "Hotels", link: "https://www.traveloka.com/en-th/hotel/thailand", color: "text-indigo-500" },
@@ -103,6 +106,15 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Transport Widget */}
+      <section className="py-16 bg-muted/30 border-b border-border">
+        <div className="container">
+          <h2 className="text-3xl font-bold tracking-tight mb-2">Book Your Transport</h2>
+          <p className="text-muted-foreground mb-8 text-lg">Search for buses, trains, and minibuses between Thai cities. Compare prices and book directly.</p>
+          <TransportScheduleWidget />
         </div>
       </section>
 
