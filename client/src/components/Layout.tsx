@@ -8,8 +8,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="border-b border-border sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="text-2xl font-bold tracking-tighter text-primary">
-              GoTravel<span className="text-foreground">.</span>
+          <Link href="/" className="flex items-center gap-3">
+              <img src="/logo.png" alt="GoTravel Logo" className="h-[50px] w-auto object-contain" />
+              <div className="hidden lg:flex flex-col">
+                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground leading-none">Travel Guides • Stays • Experiences</span>
+              </div>
           </Link>
           
           <nav className="hidden md:flex gap-8 items-center text-sm font-medium">
@@ -22,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
              <Button variant="outline" className="hidden sm:inline-flex font-mono text-xs uppercase tracking-wider">
               Sign In
             </Button>
-            <Button className="font-mono text-xs uppercase tracking-wider bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button className="font-mono text-xs uppercase tracking-wider bg-secondary text-secondary-foreground hover:bg-primary hover:text-white transition-colors">
               Plan Trip
             </Button>
           </div>
@@ -39,7 +42,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-border bg-muted/30 py-12">
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-bold tracking-tight text-primary">GoTravel.</h3>
+            <Link href="/" className="block mb-4">
+              <img src="/logo.png" alt="GoTravel Logo" className="h-12 w-auto object-contain" />
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your expert guide to flights, hotels, tours, and more. Plan your entire journey in one place.
             </p>
@@ -83,7 +88,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="container mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground font-mono">
-          <p>© 2026 GoTravel. All rights reserved.</p>
+          <p>© 2026 GoTravel — Travel Guides & Planning</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-foreground">Instagram</a>
             <a href="#" className="hover:text-foreground">Twitter</a>
